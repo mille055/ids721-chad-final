@@ -2,6 +2,14 @@ use actix_web::{post, web, App, HttpServer, Responder, get, HttpResponse};
 use actix_web::http::header::ContentType;
 use serde::{Deserialize, Serialize};
 use reqwest::Client;
+use std::sync::atomic::{AtomicUsize, Ordering};
+use std::sync::Arc;
+use std::time::Instant;
+use tracing_actix_web::TracingLogger;
+use tracing_subscriber;
+use tracing::{info, error};
+mod metrics;
+use metrics::{AppState, metrics_endpoint};
 
 #[derive(Deserialize)]
 struct ExplainRequest {
@@ -156,9 +164,10 @@ async fn explain_form(form: web::Form<ExplainRequest>) -> impl Responder {
 }
 
 #[post("/explain")]
-async fn explain(req: web::Json<ExplainRequest>) -> impl Responder {
-    let client = Client::new();
+async fn explain(req: web::Json<ExplainRequest>, app_state: web::Data<AppState>,) -> impl Responder {
+    let start_time = Instant::now();
 
+    let client = Client::new();
     let prompt = format!(
         "You are a healthcare assistant.\n\n\
         Instructions:\n\
@@ -187,23 +196,41 @@ async fn explain(req: web::Json<ExplainRequest>) -> impl Responder {
         n_predict: 250,
         temperature: 0.2,
     };
-    
+
     let llama_server_url = std::env::var("LLAMAFILE_URL").unwrap_or_else(|_| "http://172.31.34.208:8080/completion".to_string());
     let res = client.post(llama_server_url)
         .json(&llama_req)
         .send()
-        .await
-        .expect("Failed to send request to llamafile");
+        .await;
 
-    let llama_response: LlamaResponse = res.json().await.expect("Invalid response");
+    let elapsed_time = start_time.elapsed();
 
-    let cleaned_text = clean_llama_output(&llama_response.content);
-    println!("RAW Llama cleaned output:\n{}", cleaned_text);
-    let patient_friendly = extract_before_triple_quotes(&cleaned_text);
+    match res {
+        Ok(response) => {
+            let llama_response: LlamaResponse = response.json().await.map_err(|e| {
+                error!("Failed to parse response: {}", e);
+                actix_web::error::ErrorInternalServerError("Failed to parse Llama response")
+            })?;
 
-    web::Json(ExplainResponse {
-        patient_explanation: patient_friendly,
-    })
+            let cleaned_text = clean_llama_output(&llama_response.content);
+            let patient_friendly = extract_before_triple_quotes(&cleaned_text);
+
+            let request_count = app_state.counter.fetch_add(1, Ordering::Relaxed) + 1;
+
+            info!(
+                "Processed request #{}, took {:.2?} seconds",
+                request_count, elapsed_time
+            );
+
+            Ok(web::Json(ExplainResponse {
+                patient_explanation: patient_friendly,
+            }))
+        }
+        Err(e) => {
+            error!("Error sending request to llamafile: {}", e);
+            Err(actix_web::error::ErrorInternalServerError("Failed to reach Llamafile model"))
+        }
+    }
 }
 
 #[get("/healthcheck")]
@@ -211,16 +238,34 @@ async fn healthcheck() -> impl Responder {
     "OK"
 }
 
+#[get("/logtest")]
+async fn logtest() -> impl Responder {
+    info!("Logtest endpoint was called!");
+    HttpResponse::Ok().body("Logtest complete. Check logs for info message.")
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    tracing_subscriber::fmt()
+        .with_max_level(tracing::Level::INFO)
+        .init();
+
     println!("Starting Patient-Friendly Report Converter server at http://0.0.0.0:8000");
 
-    HttpServer::new(|| {
+    let app_state = web::Data::new(AppState {
+        counter: Arc::new(AtomicUsize::new(0)),
+    });
+    
+    HttpServer::new(move || {
         App::new()
+            .wrap(TracingLogger::default())
+            .app_data(app_state.clone())
             .service(home)
             .service(explain)
             .service(explain_form)
             .service(healthcheck)
+            .service(metrics_endpoint)
+            .service(logtest)
     })
     .bind(("0.0.0.0", 8000))?
     .run()
