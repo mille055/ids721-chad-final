@@ -89,7 +89,6 @@ async fn home() -> impl Responder {
         .body(html)
 }
 
-
 #[post("/explain_form")]
 async fn explain_form(form: web::Form<ExplainRequest>) -> impl Responder {
     let client = Client::new();
@@ -120,8 +119,8 @@ async fn explain_form(form: web::Form<ExplainRequest>) -> impl Responder {
         n_predict: 250,
         temperature: 0.2,
     };
-
-    let res = client.post("http://llama:8080/completion")
+    let llama_server_url = std::env::var("LLAMAFILE_URL").unwrap_or_else(|_| "http://172.31.34.208:8080/completion".to_string());
+    let res = client.post(llama_server_url)
         .json(&llama_req)
         .send()
         .await
@@ -188,8 +187,9 @@ async fn explain(req: web::Json<ExplainRequest>) -> impl Responder {
         n_predict: 250,
         temperature: 0.2,
     };
-
-    let res = client.post("http://llama:8080/completion")
+    
+    let llama_server_url = std::env::var("LLAMAFILE_URL").unwrap_or_else(|_| "http://172.31.34.208:8080/completion".to_string());
+    let res = client.post(llama_server_url)
         .json(&llama_req)
         .send()
         .await

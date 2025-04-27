@@ -1,13 +1,20 @@
 # Ignore everything unnecessary
 .git
 .gitignore
-target
 Dockerfile
 docker-compose.yml
 README.md
 .vscode
 .idea
 .env
+.tar
+.zip
+.gguf
+.bin
 
 # Ignore model files during Rust app build (they are in llamafile/)
 llamafile/
+*.llamafile
+target/
+
+

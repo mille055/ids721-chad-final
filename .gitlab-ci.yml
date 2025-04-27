@@ -13,7 +13,7 @@ build_app:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker-compose build
+    - docker build -t patient-converter .
   only:
     - main
 
@@ -25,6 +25,6 @@ deploy_app:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker-compose up -d
+    - docker run -d -p 8000:8000 patient-converter
   only:
     - main

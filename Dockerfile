@@ -1,23 +1,22 @@
 # 1st stage: Build the Rust app
-FROM rust:1.74 as builder
+FROM rust:latest AS builder
 
 WORKDIR /app
 
 # Cache dependencies first
 COPY Cargo.toml Cargo.lock ./
-RUN mkdir src
-RUN echo "fn main() {}" > src/main.rs
-RUN cargo build --release
-RUN rm -f target/release/deps/projectf*
 
 # Copy real source code
-COPY . .
+COPY src ./src
+
+# Fetch dependencies
+RUN cargo fetch
 
 # Build for release
 RUN cargo build --release
 
 # 2nd stage: Tiny runtime container
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
