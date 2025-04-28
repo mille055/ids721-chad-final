@@ -1,0 +1,977 @@
+[
+    {
+      "term": "Abrasion",
+      "synonyms": [],
+      "definition": "A wound caused by scraping the skin. A 'skinned knee' is a common example."
+    },
+    {
+      "term": "Abscess",
+      "synonyms": [],
+      "definition": "A collection of pus that has built up within the tissue of the body."
+    },
+    {
+      "term": "Acute",
+      "synonyms": [],
+      "definition": "Sudden and severe onset of symptoms or disease."
+    },
+    {
+      "term": "Benign",
+      "synonyms": [],
+      "definition": "Not cancerous; not harmful in effect."
+    },
+    {
+      "term": "Biopsy",
+      "synonyms": [],
+      "definition": "A sample of tissue taken from the body to be examined more closely."
+    },
+    {
+      "term": "CT Scan",
+      "synonyms": ["Computed Tomography"],
+      "definition": "An imaging method that uses X-rays to create detailed pictures of structures inside the body."
+    },
+    {
+      "term": "Cyst",
+      "synonyms": [],
+      "definition": "A sac filled with fluid, air, or other material, often forming within body tissues."
+    },
+    {
+      "term": "Edema",
+      "synonyms": [],
+      "definition": "Swelling caused by excess fluid trapped in the body's tissues."
+    },
+    {
+      "term": "Fracture",
+      "synonyms": [],
+      "definition": "A break, usually in a bone."
+    },
+    {
+      "term": "MRI",
+      "synonyms": ["Magnetic Resonance Imaging"],
+      "definition": "An imaging test that uses magnetic fields and radio waves to create detailed pictures of the body's organs and tissues."
+    },
+    {
+      "term": "Pleural Effusion",
+      "synonyms":[],
+      "definition": "An abnormal collection of fluid in the space around the lungs, often causing breathing difficulty."
+    },
+    {
+      "term": "Consolidation",
+      "synonyms": ["Lung consolidation"],
+      "definition": "A region of lung tissue that is filled with liquid instead of air, often caused by infection or inflammation."
+    },
+    {
+      "term": "Atelectasis",
+      "synonyms": ["Collapsed lung", "Lung collapse"],
+      "definition": "A partial or complete collapse of part of the lung."
+    },
+    {
+      "term": "Effusion",
+      "synonyms": ["Fluid collection"],
+      "definition": "A buildup of fluid in a body cavity, like the chest or abdomen."
+    },
+    {
+      "term": "Infarct",
+      "synonyms": ["Tissue death"],
+      "definition": "An area of tissue that dies because of lack of blood supply."
+    },
+    {
+      "term": "Ischemia",
+      "synonyms": ["Reduced blood flow"],
+      "definition": "A lack of sufficient blood supply to an organ or part of the body."
+    },
+    {
+      "term": "Nodule",
+      "synonyms": ["Small lump"],
+      "definition": "A small, solid lump that can be found in organs like the lung or thyroid."
+    },
+    {
+      "term": "Lesion",
+      "synonyms": ["Abnormal area"],
+      "definition": "An area of abnormal tissue change, which can be benign or malignant."
+    },
+    {
+      "term": "Hyperdense",
+      "synonyms": [],
+      "definition": "Appearing whiter on a CT scan because the tissue is denser."
+    },
+    {
+      "term": "Hypodense",
+      "synonyms": [],
+      "definition": "Appearing darker on a CT scan because the tissue is less dense."
+    },
+    {
+      "term": "Calcification",
+      "synonyms": ["Calcium deposit"],
+      "definition": "A buildup of calcium in body tissues, seen as bright spots on imaging."
+    },
+    {
+      "term": "Cerebral Edema",
+      "synonyms": ["Brain swelling"],
+      "definition": "Swelling of the brain caused by fluid buildup."
+    },
+    {
+      "term": "Subdural Hematoma",
+      "synonyms": [],
+      "definition": "A collection of blood between the brain and its outer covering, usually from a head injury."
+    },
+    {
+      "term": "Hemorrhage",
+      "synonyms": ["Bleeding"],
+      "definition": "Uncontrolled bleeding inside the body."
+    },
+    {
+      "term": "Hydronephrosis",
+      "synonyms": ["Swollen kidney"],
+      "definition": "Swelling of a kidney due to a build-up of urine."
+    },
+    {
+      "term": "Hematoma",
+      "synonyms": ["Blood clot"],
+      "definition": "A collection of blood outside blood vessels, often caused by injury."
+    },
+    {
+      "term": "Pulmonary Embolism",
+      "synonyms": ["Lung blood clot"],
+      "definition": "A blood clot that travels to the lungs and blocks blood flow."
+    },
+    {
+      "term": "Pneumothorax",
+      "synonyms": ["Collapsed lung"],
+      "definition": "Air trapped between the lung and chest wall, causing the lung to collapse."
+    },
+    {
+      "term": "Pericardial Effusion",
+      "synonyms": ["Fluid around the heart"],
+      "definition": "An abnormal buildup of fluid in the sac around the heart."
+    },
+    {
+      "term": "Gallstones",
+      "synonyms": [],
+      "definition": "Small, hard deposits that form in the gallbladder."
+    },
+    {
+      "term": "Cholecystitis",
+      "synonyms": [],
+      "definition": "Inflammation of the gallbladder, often caused by gallstones."
+    },
+    {
+      "term": "Appendicitis",
+      "synonyms": [],
+      "definition": "Inflammation of the appendix, often requiring surgery."
+    },
+    {
+      "term": "Diverticulitis",
+      "synonyms": [],
+      "definition": "Inflammation or infection of small pouches in the intestine wall."
+    },
+    {
+      "term": "Pneumonia",
+      "synonyms": [],
+      "definition": "An infection that inflames the air sacs in one or both lungs."
+    },
+    {
+      "term": "Emphysema",
+      "synonyms": [],
+      "definition": "A lung disease that causes shortness of breath by damaging air sacs."
+    },
+    {
+      "term": "Cholelithiasis",
+      "synonyms": ["Gallstones"],
+      "definition": "The medical term for the presence of gallstones."
+    },
+    {
+      "term": "Bowel Obstruction",
+      "synonyms": ["Intestinal blockage"],
+      "definition": "A blockage that prevents food or liquid from passing through the small or large intestine."
+    },
+    {
+      "term": "Ascites",
+      "synonyms": ["Abdominal fluid"],
+      "definition": "Buildup of fluid in the abdomen."
+    },
+    {
+      "term": "Mass",
+      "synonyms": ["Tumor", "Lump"],
+      "definition": "An abnormal growth of tissue that may be benign or malignant."
+    },
+    {
+      "term": "Thrombosis",
+      "synonyms": ["Blood clot"],
+      "definition": "Formation of a blood clot inside a blood vessel."
+    },
+    {
+      "term": "Anemia",
+      "synonyms": [],
+      "definition": "A condition where the blood lacks enough healthy red blood cells."
+    },
+    {
+      "term": "Metastasis",
+      "synonyms": ["Cancer spread"],
+      "definition": "The spread of cancer cells from the original site to other parts of the body."
+    },
+    {
+      "term": "Lymphadenopathy",
+      "synonyms": ["Swollen lymph nodes"],
+      "definition": "Enlargement of lymph nodes, often from infection or cancer."
+    },
+    {
+      "term": "Perforation",
+      "synonyms": [],
+      "definition": "A hole that forms through the wall of an organ."
+    },
+    {
+      "term": "Contrast Enhancement",
+      "synonyms": [],
+      "definition": "Use of contrast material to make tissues easier to see on imaging scans."
+    },
+    {
+      "term": "Hyperintense",
+      "synonyms": [],
+      "definition": "Appearing bright on MRI images, often indicating fluid or fat."
+    },
+    {
+      "term": "Hypointense",
+      "synonyms": [],
+      "definition": "Appearing dark on MRI images, often indicating dense or solid tissue."
+    },
+    {
+      "term": "Laceration",
+      "synonyms": ["Cut", "Tear"],
+      "definition": "A deep cut or tear in the skin or flesh."
+    },
+    {
+      "term": "Cerebral Infarction",
+      "synonyms": ["Stroke"],
+      "definition": "Death of brain tissue due to lack of blood flow, also called a stroke."
+    },
+    {
+      "term": "Hydrocephalus",
+      "synonyms": ["Water on the brain"],
+      "definition": "A buildup of fluid in the brain, causing increased pressure."
+    },
+    {
+      "term": "Brain Herniation",
+      "synonyms": [],
+      "definition": "Movement of brain tissue out of its normal position, usually due to swelling or pressure."
+    },
+    {
+      "term": "Obstructive Uropathy",
+      "synonyms": [],
+      "definition": "Urine flow blocked due to obstruction in the urinary system."
+    },
+    {
+      "term": "Compression Fracture",
+      "synonyms": [],
+      "definition": "A break in a bone caused by pressure, commonly seen in the spine."
+    },
+    {
+      "term": "Spondylosis",
+      "synonyms": ["Spinal degeneration"],
+      "definition": "Age-related wear and tear of the spinal disks."
+    },
+    {
+      "term": "Arthritis",
+      "synonyms": [],
+      "definition": "Inflammation of the joints, causing pain and stiffness."
+    },
+    {
+      "term": "Degenerative Disc Disease",
+      "synonyms": [],
+      "definition": "Age-related changes in the spinal discs causing pain or other symptoms."
+    },
+    {
+      "term": "Osteomyelitis",
+      "synonyms": [],
+      "definition": "Infection in a bone."
+    },
+    {
+      "term": "Aneurysm",
+      "synonyms": [],
+      "definition": "An abnormal bulge in the wall of a blood vessel."
+    },
+    {
+      "term": "Dissection",
+      "synonyms": [],
+      "definition": "A tear in the inner layer of a blood vessel wall."
+    },
+    {
+      "term": "Varices",
+      "synonyms": ["Swollen veins"],
+      "definition": "Enlarged, swollen veins often seen in the esophagus or stomach."
+    },
+    {
+      "term": "Peritonitis",
+      "synonyms": [],
+      "definition": "Inflammation of the tissue that lines the inner wall of the abdomen."
+    },
+    {
+      "term": "Sepsis",
+      "synonyms": ["Blood infection"],
+      "definition": "A life-threatening response to infection that can cause tissue damage and organ failure."
+    },
+    {
+      "term": "Hypoxia",
+      "synonyms": ["Low oxygen"],
+      "definition": "A condition in which there is not enough oxygen in the tissues."
+    },
+    {
+      "term": "Ischemic Stroke",
+      "synonyms": [],
+      "definition": "A stroke caused by a blockage in a blood vessel supplying the brain."
+    },
+    {
+      "term": "Hemorrhagic Stroke",
+      "synonyms": [],
+      "definition": "A stroke caused by bleeding in or around the brain."
+    },
+    {
+      "term": "Microhemorrhage",
+      "synonyms": [],
+      "definition": "A small area of bleeding in the brain often seen on MRI."
+    },
+    {
+      "term": "Contusion",
+      "synonyms": ["Bruise"],
+      "definition": "A region of injured tissue or skin where blood capillaries have been ruptured."
+    },
+    {
+      "term": "Effacement",
+      "synonyms": ["Flattening"],
+      "definition": "Loss of normal space or separation, such as flattening of brain structures from swelling."
+    },
+    {
+      "term": "Mass Effect",
+      "synonyms": [],
+      "definition": "Pressure caused by a growing mass or swelling that shifts nearby structures."
+    },
+    {
+      "term": "Midline Shift",
+      "synonyms": [],
+      "definition": "Movement of the brain's central structures away from their normal position, often due to swelling or bleeding."
+    },
+    {
+      "term": "Glioma",
+      "synonyms": [],
+      "definition": "A type of tumor that starts in the brain or spine."
+    },
+    {
+      "term": "Meningioma",
+      "synonyms": [],
+      "definition": "A usually benign tumor that forms on membranes covering the brain and spinal cord."
+    },
+    {
+      "term": "Angioplasty",
+      "synonyms": ["Balloon procedure"],
+      "definition": "A procedure to open narrowed or blocked blood vessels of the heart."
+    },
+    {
+      "term": "Stenosis",
+      "synonyms": ["Narrowing"],
+      "definition": "The abnormal narrowing of a passage in the body, such as a blood vessel or spinal canal."
+    },
+    {
+      "term": "Arteriosclerosis",
+      "synonyms": ["Hardening of the arteries"],
+      "definition": "Thickening and hardening of the walls of the arteries."
+    },
+    {
+      "term": "Atherosclerosis",
+      "synonyms": ["Plaque buildup"],
+      "definition": "A condition where plaque builds up inside arteries, narrowing them and restricting blood flow."
+    },
+    {
+      "term": "Cardiomegaly",
+      "synonyms": ["Enlarged heart"],
+      "definition": "An abnormal enlargement of the heart."
+    },
+    {
+      "term": "Cardiomyopathy",
+      "synonyms": [],
+      "definition": "Disease of the heart muscle affecting its size, shape, or structure."
+    },
+    {
+      "term": "Pulmonary Edema",
+      "synonyms": ["Fluid in lungs"],
+      "definition": "A condition caused by excess fluid in the lungs."
+    },
+    {
+      "term": "Bronchiectasis",
+      "synonyms": [],
+      "definition": "Permanent enlargement of parts of the airways of the lung."
+    },
+    {
+      "term": "Cavitation",
+      "synonyms": ["Cavity"],
+      "definition": "The formation of an empty space within solid tissue, often seen in lung infections."
+    },
+    {
+      "term": "Ground Glass Opacity",
+      "synonyms": ["Hazy lung opacity"],
+      "definition": "A finding on CT where the lungs appear hazy but underlying structures are still visible."
+    },
+    {
+      "term": "Consolidative Opacity",
+      "synonyms": [],
+      "definition": "An area in the lung on imaging where air has been replaced by fluid, infection, or tissue."
+    },
+    {
+      "term": "Pneumatoceles",
+      "synonyms": ["Air cysts"],
+      "definition": "Thin-walled, air-filled cysts that form in the lungs after infection or trauma."
+    },
+    {
+      "term": "Air Bronchogram",
+      "synonyms": [],
+      "definition": "Visible air-filled bronchi on imaging, surrounded by alveoli filled with fluid or tissue."
+    },
+    {
+      "term": "Interstitial Lung Disease",
+      "synonyms": [],
+      "definition": "A group of disorders that cause scarring of the lung tissue."
+    },
+    {
+      "term": "Pulmonary Fibrosis",
+      "synonyms": ["Lung scarring"],
+      "definition": "A lung disease that occurs when lung tissue becomes damaged and scarred."
+    },
+    {
+      "term": "Pleural Thickening",
+      "synonyms": [],
+      "definition": "Thickening of the lining around the lungs, often from inflammation, infection, or asbestos exposure."
+    },
+    {
+      "term": "Hemothorax",
+      "synonyms": ["Blood in chest cavity"],
+      "definition": "Accumulation of blood in the space between the lungs and chest wall."
+    },
+    {
+      "term": "Empyema",
+      "synonyms": ["Pus in chest"],
+      "definition": "Pus collected in the space between the lung and the chest wall, usually from infection."
+    },
+    {
+      "term": "Hiatal Hernia",
+      "synonyms": [],
+      "definition": "A condition where part of the stomach pushes up into the chest through an opening in the diaphragm."
+    },
+    {
+      "term": "Esophageal Varices",
+      "synonyms": [],
+      "definition": "Swollen veins in the lower esophagus, often related to liver disease."
+    },
+    {
+      "term": "Portal Hypertension",
+      "synonyms": [],
+      "definition": "Increased blood pressure in the portal vein system, often due to liver disease."
+    },
+    {
+      "term": "Liver Cirrhosis",
+      "synonyms": ["Liver scarring"],
+      "definition": "Severe scarring of the liver often caused by long-term liver damage."
+    },
+    {
+      "term": "Splenomegaly",
+      "synonyms": ["Enlarged spleen"],
+      "definition": "An enlarged spleen often caused by infections, liver disease, or cancers."
+    },
+    {
+      "term": "Nephrolithiasis",
+      "synonyms": ["Kidney stones"],
+      "definition": "The formation of stones in the kidney."
+    },
+    {
+      "term": "Ureterolithiasis",
+      "synonyms": ["Stone in the ureter"],
+      "definition": "A kidney stone that has moved into the ureter."
+    },
+    {
+      "term": "Pyelonephritis",
+      "synonyms": ["Kidney infection"],
+      "definition": "A bacterial infection of the kidneys."
+    },
+    {
+      "term": "Renal Cyst",
+      "synonyms": ["Kidney cyst"],
+      "definition": "A fluid-filled sac in the kidney."
+    },
+    {
+      "term": "Renal Mass",
+      "synonyms": ["Kidney mass"],
+      "definition": "An abnormal growth in the kidney, which can be benign or cancerous."
+    },
+    {
+      "term": "Bladder Wall Thickening",
+      "synonyms": [],
+      "definition": "Thickening of the bladder wall, often from infection, inflammation, or obstruction."
+    },
+    {
+      "term": "Bladder Diverticulum",
+      "synonyms": [],
+      "definition": "An outpouching of the bladder wall."
+    },
+    {
+      "term": "Ovarian Cyst",
+      "synonyms": [],
+      "definition": "A fluid-filled sac that develops on an ovary."
+    },
+    {
+      "term": "Ovarian Torsion",
+      "synonyms": [],
+      "definition": "Twisting of the ovary, cutting off its blood supply, often requiring emergency surgery."
+    },
+    {
+      "term": "Endometriosis",
+      "synonyms": [],
+      "definition": "A condition where tissue similar to the lining of the uterus grows outside the uterus."
+    },
+    {
+      "term": "Ectopic Pregnancy",
+      "synonyms": [],
+      "definition": "A pregnancy that occurs outside the uterus, usually in the fallopian tube."
+    },
+    {
+      "term": "Uterine Fibroids",
+      "synonyms": ["Leiomyomas"],
+      "definition": "Noncancerous growths in the uterus."
+    },
+    {
+      "term": "Cystic Hygroma",
+      "synonyms": [],
+      "definition": "A fluid-filled sac resulting from a blockage in the lymphatic system, often seen in the neck region."
+    },
+    {
+      "term": "Lymphangioma",
+      "synonyms": [],
+      "definition": "A benign tumor made up of lymphatic vessels."
+    },
+    {
+      "term": "Soft Tissue Mass",
+      "synonyms": [],
+      "definition": "An abnormal lump or growth in the soft tissues of the body."
+    },
+    {
+      "term": "Osteosarcoma",
+      "synonyms": [],
+      "definition": "A type of bone cancer that begins in the cells that form bones."
+    },
+    {
+      "term": "Ewing Sarcoma",
+      "synonyms": [],
+      "definition": "A rare type of cancer that occurs in bones or in the soft tissue around the bones."
+    },
+    {
+      "term": "Chondrosarcoma",
+      "synonyms": [],
+      "definition": "A cancer composed of cells that produce cartilage."
+    },
+    {
+      "term": "Bone Metastases",
+      "synonyms": ["Cancer spread to bones"],
+      "definition": "Cancer that has spread to bones from another part of the body."
+    },
+    {
+      "term": "Scoliosis",
+      "synonyms": [],
+      "definition": "A sideways curvature of the spine."
+    },
+    {
+      "term": "Kyphosis",
+      "synonyms": ["Hunchback"],
+      "definition": "Excessive outward curvature of the spine, leading to a hunching posture."
+    },
+    {
+      "term": "Lordosis",
+      "synonyms": ["Swayback"],
+      "definition": "Excessive inward curvature of the lower back."
+    },
+    {
+      "term": "Vertebral Body Collapse",
+      "synonyms": [],
+      "definition": "Collapse or compression of a vertebral body, often due to fracture or tumor."
+    },
+    {
+      "term": "Disc Herniation",
+      "synonyms": ["Slipped disc"],
+      "definition": "A condition where part of the spinal disc pushes out and presses on nerves."
+    },
+    {
+      "term": "Small Bowel Obstruction",
+      "synonyms": [],
+      "definition": "A blockage of the small intestine that prevents the normal movement of digestive contents."
+    },
+    {
+      "term": "Large Bowel Obstruction",
+      "synonyms": [],
+      "definition": "A blockage of the large intestine that stops or slows the passage of stool."
+    },
+    {
+      "term": "Volvulus",
+      "synonyms": [],
+      "definition": "Twisting of part of the intestine, which can block blood flow and cause obstruction."
+    },
+    {
+      "term": "Intussusception",
+      "synonyms": [],
+      "definition": "A condition in which one part of the intestine slides into another, causing blockage."
+    },
+    {
+      "term": "Pseudomembranous Colitis",
+      "synonyms": [],
+      "definition": "Inflammation of the colon often caused by a bacterial infection like C. difficile."
+    },
+    {
+      "term": "Ulcerative Colitis",
+      "synonyms": [],
+      "definition": "A chronic inflammatory bowel disease that causes inflammation and ulcers in the colon."
+    },
+    {
+      "term": "Crohn's Disease",
+      "synonyms": [],
+      "definition": "A chronic inflammatory disease of the intestines, especially the colon and ileum."
+    },
+    {
+      "term": "Pancreatitis",
+      "synonyms": [],
+      "definition": "Inflammation of the pancreas."
+    },
+    {
+      "term": "Pseudocyst",
+      "synonyms": [],
+      "definition": "A fluid-filled sac that forms in the abdomen, often after inflammation of the pancreas."
+    },
+    {
+      "term": "Hepatomegaly",
+      "synonyms": ["Enlarged liver"],
+      "definition": "An enlargement of the liver beyond its normal size."
+    },
+    {
+      "term": "Portal Vein Thrombosis",
+      "synonyms": [],
+      "definition": "A blood clot in the portal vein that can lead to complications like varices and ascites."
+    },
+    {
+      "term": "Mesenteric Ischemia",
+      "synonyms": [],
+      "definition": "A condition caused by reduced blood flow to the intestines."
+    },
+    {
+      "term": "Adrenal Mass",
+      "synonyms": [],
+      "definition": "An abnormal growth found on one of the adrenal glands."
+    },
+    {
+      "term": "Adrenal Hemorrhage",
+      "synonyms": [],
+      "definition": "Bleeding into one of the adrenal glands, often after trauma or stress."
+    },
+    {
+      "term": "Retroperitoneal Hematoma",
+      "synonyms": [],
+      "definition": "A collection of blood in the area behind the abdominal cavity."
+    },
+    {
+      "term": "Hydrosalpinx",
+      "synonyms": [],
+      "definition": "A condition where the fallopian tube is filled with fluid."
+    },
+    {
+      "term": "Tubo-Ovarian Abscess",
+      "synonyms": [],
+      "definition": "A collection of pus involving the fallopian tube and ovary, usually due to infection."
+    },
+    {
+      "term": "Placenta Previa",
+      "synonyms": [],
+      "definition": "A condition where the placenta covers the cervix, potentially causing bleeding during pregnancy."
+    },
+    {
+      "term": "Placental Abruption",
+      "synonyms": [],
+      "definition": "A serious condition where the placenta detaches from the uterus before birth."
+    },
+    {
+      "term": "Anencephaly",
+      "synonyms": [],
+      "definition": "A birth defect in which parts of the brain and skull do not develop properly."
+    },
+    {
+      "term": "Spina Bifida",
+      "synonyms": [],
+      "definition": "A birth defect where the spine and spinal cord don't form properly."
+    },
+    {
+      "term": "Ventriculomegaly",
+      "synonyms": ["Enlarged brain ventricles"],
+      "definition": "Enlargement of the brain's fluid spaces, often seen in prenatal or infant imaging."
+    },
+    {
+      "term": "Congenital Diaphragmatic Hernia",
+      "synonyms": [],
+      "definition": "A birth defect where there is an opening in the diaphragm, allowing abdominal organs into the chest cavity."
+    },
+    {
+      "term": "Omphalocele",
+      "synonyms": [],
+      "definition": "A birth defect where abdominal organs protrude into the base of the umbilical cord."
+    },
+    {
+      "term": "Gastroschisis",
+      "synonyms": [],
+      "definition": "A birth defect where the baby's intestines extend outside of the body through a hole beside the belly button."
+    },
+    {
+      "term": "Cleft Lip",
+      "synonyms": [],
+      "definition": "An opening or split in the upper lip."
+    },
+    {
+      "term": "Cleft Palate",
+      "synonyms": [],
+      "definition": "An opening or split in the roof of the mouth."
+    },
+    {
+      "term": "Congenital Heart Defect",
+      "synonyms": [],
+      "definition": "An abnormality in the heart's structure that is present at birth."
+    },
+    {
+      "term": "Tetralogy of Fallot",
+      "synonyms": [],
+      "definition": "A complex congenital heart defect involving four heart abnormalities."
+    },
+    {
+      "term": "Coarctation of the Aorta",
+      "synonyms": [],
+      "definition": "Narrowing of the aorta, the large blood vessel that carries blood from the heart to the body."
+    },
+    {
+      "term": "Hypoplastic Left Heart Syndrome",
+      "synonyms": [],
+      "definition": "A birth defect where the left side of the heart is critically underdeveloped."
+    },
+    {
+      "term": "Transposition of the Great Arteries",
+      "synonyms": [],
+      "definition": "A condition where the two main arteries leaving the heart are reversed."
+    },
+    {
+      "term": "Patent Ductus Arteriosus",
+      "synonyms": [],
+      "definition": "A persistent opening between two major blood vessels coming from the heart that usually closes after birth."
+    },
+    {
+      "term": "Atrial Septal Defect",
+      "synonyms": [],
+      "definition": "A hole in the wall between the two upper chambers of the heart."
+    },
+    {
+      "term": "Ventricular Septal Defect",
+      "synonyms": [],
+      "definition": "A hole in the wall separating the two lower chambers of the heart."
+    },
+    {
+      "term": "Dandy-Walker Malformation",
+      "synonyms": [],
+      "definition": "A congenital brain malformation involving the cerebellum and the fluid spaces around it."
+    },
+    {
+      "term": "Arnold-Chiari Malformation",
+      "synonyms": [],
+      "definition": "A condition where brain tissue extends into the spinal canal."
+    },
+    {
+      "term": "Hydranencephaly",
+      "synonyms": [],
+      "definition": "A rare condition where most of the brain's hemispheres are missing and replaced with fluid."
+    },
+    {
+      "term": "Lissencephaly",
+      "synonyms": ["Smooth brain"],
+      "definition": "A rare brain disorder where the brain surface appears smooth due to lack of normal folds."
+    },
+    {
+      "term": "Polymicrogyria",
+      "synonyms": [],
+      "definition": "A condition where the brain develops too many small folds."
+    },
+    {
+      "term": "Schizencephaly",
+      "synonyms": [],
+      "definition": "A rare condition where there are clefts or gaps in the brain tissue."
+    },
+    {
+      "term": "Porencephaly",
+      "synonyms": [],
+      "definition": "A rare disorder with cysts or cavities within the brain."
+    },
+    {
+      "term": "Agenesis of the Corpus Callosum",
+      "synonyms": [],
+      "definition": "A birth defect where the structure that connects the two sides of the brain is missing or incomplete."
+    },
+    {
+      "term": "Colpocephaly",
+      "synonyms": [],
+      "definition": "A brain abnormality where the occipital horns of the lateral ventricles are abnormally enlarged."
+    },
+    {
+      "term": "Cerebellar Hypoplasia",
+      "synonyms": [],
+      "definition": "Underdevelopment of the cerebellum, the part of the brain that controls movement and balance."
+    },
+    {
+      "term": "Microcephaly",
+      "synonyms": ["Small head size"],
+      "definition": "A condition where a baby's head is much smaller than expected."
+    },
+    {
+    "term": "Carcinomatosis",
+    "synonyms": [],
+    "definition": "A condition where there is cancer spread to the peritoneum, which is the part of the abdomen where much of the bowel is located."
+    },
+    {
+      "term": "Pneumoperitoneum",
+      "synonyms": [],
+      "definition": "Presence of air in the peritoneal cavity, often indicating perforation of a hollow organ."
+    },
+    {
+      "term": "Ascitic Fluid",
+      "synonyms": [],
+      "definition": "Fluid that accumulates in the abdominal cavity, often due to liver disease or cancer."
+    },
+    {
+      "term": "Peritoneal Carcinomatosis",
+      "synonyms": [],
+      "definition": "Cancer spread to the peritoneum, often from abdominal or pelvic cancers."
+    },
+    {"term": "Hemicolectomy",
+      "synonyms": [],
+      "definition": "Surgical removal of half of the colon."
+    },
+    {
+      "term": "Colectomy",
+      "synonyms": [],
+      "definition": "Surgical removal of all or part of the colon."
+    },
+    {
+      "term": "Cholecystectomy",
+      "synonyms": [],
+      "definition": "Surgical removal of the gallbladder."
+    },
+    {
+      "term": "Appendectomy",
+      "synonyms": [],
+      "definition": "Surgical removal of the appendix."
+    },
+    {
+      "term": "Herniorrhaphy",
+      "synonyms": [],
+      "definition": "Surgical repair of a hernia."
+    },
+    {
+      "term": "Laparotomy",
+      "synonyms": [],
+      "definition": "A surgical procedure involving a large incision through the abdominal wall to gain access into the abdominal cavity."
+    },
+    {
+      "term": "Thoracotomy",
+      "synonyms": [],
+      "definition": "A surgical procedure involving an incision into the chest wall to access the thoracic organs."
+    },
+    {
+      "term": "Craniotomy",
+      "synonyms": [],
+      "definition": "A surgical operation in which a bone flap is temporarily removed from the skull to access the brain."
+    },
+    {
+      "term": "Lumbar Puncture",
+      "synonyms": ["Spinal tap"],
+      "definition": "A procedure to collect cerebrospinal fluid for diagnostic testing."
+    },
+    {
+      "term": "Anastomosis",
+      "synonyms": [],
+      "definition": "Where two parts of a structure or two structures have been joined together."
+    },
+    {
+      "term": "hepatic",
+      "synonyms": [],
+      "definition": "Relating to the liver."  
+    },
+    {
+      "term": "renal",
+      "synonyms": [],
+      "definition": "Relating to the kidneys."
+    },
+    {
+      "term": "pulmonary",
+      "synonyms": [],
+      "definition": "Relating to the lungs."
+    },
+    {
+      "term": "cardiac",
+      "synonyms": [],
+      "definition": "Relating to the heart."
+    },
+    {
+      "term": "gastrointestinal",
+      "synonyms": [],
+      "definition": "Relating to the stomach and intestines."
+    },
+    {
+      "term": "neurological",
+      "synonyms": [],
+      "definition": "Relating to the nervous system."
+    },
+    {
+      "term": "musculoskeletal",
+      "synonyms": [],
+      "definition": "Relating to muscles and bones."
+    },
+    {
+      "term": "dermatological",
+      "synonyms": [],
+      "definition": "Relating to the skin."
+    },
+    {
+      "term": "endocrine",
+      "synonyms": [],
+      "definition": "Relating to glands that secrete hormones directly into the bloodstream."
+    },
+    {
+      "term": "hematological",
+      "synonyms": [],
+      "definition": "Relating to blood."
+    },
+    {
+      "term": "oncological",
+      "synonyms": [],
+      "definition": "Relating to the study and treatment of tumors."
+    },
+    {
+      "term": "urological",
+      "synonyms": [],
+      "definition": "Relating to the urinary system."
+    },
+    {
+      "term": "gynecological",
+      "synonyms": [],
+      "definition": "Relating to the reproductive system in a female."
+    },
+    {
+      "term": "Prostatomegaly",
+      "synonyms": [],
+      "definition": "Enlargement of the prostate gland."
+    },
+    {
+      "term": "Nephroptosis",
+      "synonyms": [],
+      "definition": "A condition where the kidney drops down into the pelvis when a person stands up."
+    },
+    {
+      "term": "Hydronephrosis",
+      "synonyms": ["hydro", "pelvicaliectasis"],
+      "definition": "Swelling of a kidney due to a build-up of urine."
+    }
+]
+  

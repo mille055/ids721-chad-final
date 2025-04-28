@@ -7,9 +7,11 @@ use std::sync::Arc;
 use std::time::Instant;
 use tracing_actix_web::TracingLogger;
 use tracing_subscriber;
-use tracing::{info, error};
+use tracing::info;
 mod metrics;
 use metrics::{AppState, metrics_endpoint};
+mod dictionary;
+use dictionary::SimpleDictionary;
 
 #[derive(Deserialize)]
 struct ExplainRequest {
@@ -21,16 +23,21 @@ struct LlamaRequest {
     prompt: String,
     n_predict: usize,
     temperature: f32,
+    stream: bool,
 }
 
 #[derive(Deserialize)]
 struct LlamaResponse {
     content: String,
+
+    #[serde(flatten)]
+    _rest: serde_json::Value,
 }
 
 #[derive(Serialize)]
 struct ExplainResponse {
     patient_explanation: String,
+    highlighted_findings: String,
 }
 
 fn clean_llama_output(raw_output: &str) -> String {
@@ -65,17 +72,36 @@ async fn home() -> impl Responder {
             async function submitForm(event) {
                 event.preventDefault();
                 const findings = document.getElementById('findings').value;
-                
-                const response = await fetch('/explain', {
+
+                // 1. Highlight terms immediately
+                const highlightResponse = await fetch('/highlight', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ findings })
                 });
+                const highlightedText = await highlightResponse.text();
+                document.getElementById('highlighted').innerHTML = highlightedText;
 
-                const data = await response.json();
-                document.getElementById('result').innerText = data.patient_explanation;
+                // 2. Start loading for patient-friendly explanation
+                document.getElementById('result').innerHTML = `<em>Loading patient-friendly explanation...</em>`;
+
+                try {
+                    const explainResponse = await fetch('/explain', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ findings })
+                    });
+
+                    if (!explainResponse.ok) {
+                        throw new Error("Failed to get explanation");
+                    }
+
+                    const data = await explainResponse.json();
+                    document.getElementById('result').innerText = data.patient_explanation;
+                } catch (error) {
+                    console.error('Error during explain fetch:', error);
+                    document.getElementById('result').innerText = "Failed to generate explanation.";
+                }
             }
         </script>
     </head>
@@ -85,9 +111,14 @@ async fn home() -> impl Responder {
             <textarea id="findings" name="findings" rows="10" cols="80" placeholder="Paste radiology findings here..."></textarea><br><br>
             <button type="submit">Convert</button>
         </form>
-        <br>
+
+        <br><br>
+        <h2>Highlighted Findings (hover over terms):</h2>
+        <p id="highlighted" style="border: 1px solid #ccc; padding: 10px;"></p>
+
+        <br><br>
         <h2>Patient-Friendly Explanation:</h2>
-        <p id="result"></p>
+        <p id="result" style="border: 1px solid #ccc; padding: 10px;"></p>
     </body>
     </html>
     "#;
@@ -97,86 +128,34 @@ async fn home() -> impl Responder {
         .body(html)
 }
 
-#[post("/explain_form")]
-async fn explain_form(form: web::Form<ExplainRequest>) -> impl Responder {
-    let client = Client::new();
-
-    let prompt = format!(
-        "You are a healthcare assistant.\n\n\
-        Instructions:\n\
-        - Rewrite the findings in simple, patient-friendly language.\n\
-        - Output ONLY the rewritten explanation inside triple quotation marks (\"\"\").\n\
-        - Do NOT explain your process.\n\
-        - Do NOT include any other text outside the triple quotation marks.\n\n\
-        Example:\n\n\
-        Findings:\n\
-        Mild right pleural effusion.\n\n\
-        Patient-friendly explanation:\n\
-        \"\"\"\n\
-        There is a small amount of extra fluid around your right lung.\n\
-        \"\"\"\n\n\
-        Findings:\n\
-        {}\n\n\
-        Patient-friendly explanation:\n\
-        \"\"\"",
-        form.findings
-    );
-
-    let llama_req = LlamaRequest {
-        prompt,
-        n_predict: 250,
-        temperature: 0.2,
-    };
-    let llama_server_url = std::env::var("LLAMAFILE_URL").unwrap_or_else(|_| "http://172.31.34.208:8080/completion".to_string());
-    let res = client.post(llama_server_url)
-        .json(&llama_req)
-        .send()
-        .await
-        .expect("Failed to send request to llamafile");
-
-    let llama_response: LlamaResponse = res.json().await.expect("Invalid response");
-
-    let cleaned_text = clean_llama_output(&llama_response.content);
-    println!("RAW Llama cleaned output:\n{}", cleaned_text); 
-    let patient_friendly = extract_before_triple_quotes(&cleaned_text);
-
-    let result_html = format!(
-        r#"
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Patient-Friendly Explanation</title>
-        </head>
-        <body>
-            <h1>Converted Explanation:</h1>
-            <p>{}</p>
-            <br>
-            <a href="/">Go back</a>
-        </body>
-        </html>
-        "#,
-        patient_friendly
-    );
-
-    HttpResponse::Ok()
-        .content_type(ContentType::html())
-        .body(result_html)
+#[post("/highlight")]
+async fn highlight(
+    req: web::Json<ExplainRequest>,
+    dictionary: web::Data<SimpleDictionary>,
+    ) -> impl Responder {
+    let highlighted_input = dictionary.highlight_medical_terms(&req.findings);
+    HttpResponse::Ok().
+        content_type(ContentType::html())
+        .body(highlighted_input)
 }
 
 #[post("/explain")]
-async fn explain(req: web::Json<ExplainRequest>, app_state: web::Data<AppState>,) -> impl Responder {
+async fn explain(
+    req: web::Json<ExplainRequest>,
+    app_state: web::Data<AppState>,
+    dictionary: web::Data<SimpleDictionary>,
+    ) -> impl Responder {
     let start_time = Instant::now();
-
     let client = Client::new();
     let prompt = format!(
         "You are a healthcare assistant.\n\n\
         Instructions:\n\
         - Rewrite the findings in simple, patient-friendly language.\n\
         - Output ONLY the rewritten explanation inside triple quotation marks (\"\"\").\n\
-        - Do NOT explain your process.\n\
-        - Do NOT include any other text outside the triple quotation marks.\n\n\
-        - DO NOT speculate or add new information.
-        - DO NOT suggest that a doctor is making a diagnosis or assumption unless explicitly stated.
+        - DO NOT explain your process.\n\
+        - DO NOT include any other text outside the triple quotation marks.\n\
+        - DO NOT speculate or add new information.\n\
+        - DO NOT suggest that a doctor is making a diagnosis or assumption unless explicitly stated.\n\n\
         Example:\n\n\
         Findings:\n\
         Mild right pleural effusion.\n\n\
@@ -193,44 +172,42 @@ async fn explain(req: web::Json<ExplainRequest>, app_state: web::Data<AppState>,
 
     let llama_req = LlamaRequest {
         prompt,
-        n_predict: 250,
+        n_predict: 100,
         temperature: 0.2,
+        stream: false,
     };
 
-    let llama_server_url = std::env::var("LLAMAFILE_URL").unwrap_or_else(|_| "http://172.31.34.208:8080/completion".to_string());
-    let res = client.post(llama_server_url)
+    let llama_base_url = std::env::var("LLAMAFILE_URL")
+        .unwrap_or_else(|_| "http://host.docker.internal:8080".to_string());
+    let llama_completion_url = format!("{}/completion", llama_base_url);
+
+    let res = client
+        .post(&llama_completion_url)
         .json(&llama_req)
         .send()
-        .await;
+        .await
+        .expect("Failed to send request to llamafile");
 
+    let response_text = res.text().await.expect("Failed to read Llama response text");
+    let llama_response: LlamaResponse = serde_json::from_str(&response_text)
+        .expect("Invalid response from Llama");
+
+    let highlighted_input = dictionary.highlight_medical_terms(&req.findings);
+    let cleaned_text = clean_llama_output(&llama_response.content);
+    let patient_friendly = extract_before_triple_quotes(&cleaned_text);
+
+    let request_count = app_state.counter.fetch_add(1, Ordering::Relaxed) + 1;
     let elapsed_time = start_time.elapsed();
 
-    match res {
-        Ok(response) => {
-            let llama_response: LlamaResponse = response.json().await.map_err(|e| {
-                error!("Failed to parse response: {}", e);
-                actix_web::error::ErrorInternalServerError("Failed to parse Llama response")
-            })?;
+    info!(
+        "Processed request #{}, took {:.2?} seconds",
+        request_count, elapsed_time
+    );
 
-            let cleaned_text = clean_llama_output(&llama_response.content);
-            let patient_friendly = extract_before_triple_quotes(&cleaned_text);
-
-            let request_count = app_state.counter.fetch_add(1, Ordering::Relaxed) + 1;
-
-            info!(
-                "Processed request #{}, took {:.2?} seconds",
-                request_count, elapsed_time
-            );
-
-            Ok(web::Json(ExplainResponse {
-                patient_explanation: patient_friendly,
-            }))
-        }
-        Err(e) => {
-            error!("Error sending request to llamafile: {}", e);
-            Err(actix_web::error::ErrorInternalServerError("Failed to reach Llamafile model"))
-        }
-    }
+    web::Json(ExplainResponse {
+        patient_explanation: patient_friendly,
+        highlighted_findings: highlighted_input,
+    })
 }
 
 #[get("/healthcheck")]
@@ -255,14 +232,18 @@ async fn main() -> std::io::Result<()> {
     let app_state = web::Data::new(AppState {
         counter: Arc::new(AtomicUsize::new(0)),
     });
-    
+
+    let medical_dictionary = SimpleDictionary::load_from_json("./data/medical_terms.json");
+    let shared_dictionary = web::Data::new(medical_dictionary);
+
     HttpServer::new(move || {
         App::new()
             .wrap(TracingLogger::default())
             .app_data(app_state.clone())
+            .app_data(shared_dictionary.clone())
             .service(home)
             .service(explain)
-            .service(explain_form)
+            .service(highlight)
             .service(healthcheck)
             .service(metrics_endpoint)
             .service(logtest)

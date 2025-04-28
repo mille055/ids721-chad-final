@@ -8,6 +8,7 @@ COPY Cargo.toml Cargo.lock ./
 
 # Copy real source code
 COPY src ./src
+COPY data ./data
 
 # Fetch dependencies
 RUN cargo fetch
@@ -24,6 +25,7 @@ WORKDIR /app
 
 # Copy the compiled binary
 COPY --from=builder /app/target/release/projectf .
+COPY data ./data
 
 EXPOSE 8000
 
