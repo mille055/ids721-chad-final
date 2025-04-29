@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient-Friendly Radiology Report Converter</title>
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+            const findings = document.getElementById('findings').value;
+
+            const highlightResponse = await fetch('/highlight', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ findings })
+            });
+            const highlightedText = await highlightResponse.text();
+            document.getElementById('highlighted').innerHTML = highlightedText;
+
+            document.getElementById('result').innerHTML = `<em>Loading patient-friendly explanation...</em>`;
+
+            try {
+                const explainResponse = await fetch('/explain', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ findings })
+                });
+
+                if (!explainResponse.ok) {
+                    throw new Error("Failed to get explanation");
+                }
+
+                const data = await explainResponse.json();
+                document.getElementById('result').innerText = data.patient_explanation;
+            } catch (error) {
+                console.error('Error during explain fetch:', error);
+                document.getElementById('result').innerText = "Failed to generate explanation.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Radiology Findings to Patient-Friendly Language</h1>
+    <form onsubmit="submitForm(event)">
+        <textarea id="findings" name="findings" rows="10" cols="80" placeholder="Paste radiology findings here..."></textarea><br><br>
+        <button type="submit">Convert</button>
+    </form>
+
+    <br><br>
+    <h2>Highlighted Findings (hover over terms):</h2>
+    <p id="highlighted" style="border: 1px solid #ccc; padding: 10px;"></p>
+
+    <br><br>
+    <h2>Patient-Friendly Explanation:</h2>
+    <p id="result" style="border: 1px solid #ccc; padding: 10px;"></p>
+</body>
+</html>

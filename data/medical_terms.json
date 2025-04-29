@@ -100,6 +100,31 @@
       "definition": "Appearing darker on a CT scan because the tissue is less dense."
     },
     {
+      "term": "Hyperechoic",
+      "synonyms": [],
+      "definition": "Appearing brighter on an ultrasound due to denser tissue."
+    },
+    {
+      "term": "Hyeprenhancing",
+      "synonyms": [],
+      "definition": "Appearing brighter on imaging after contrast material is used, indicating increased blood flow or activity."
+    },
+    {
+      "term": "Calcified",
+      "synonyms": ["Calcium buildup"],
+      "definition": "Deposits of calcium in tissues, often seen in imaging as bright spots."
+    },
+    {
+      "term": "Hypoechoic",
+      "synonyms": [],
+      "definition": "Appearing darker on an ultrasound due to less dense tissue."
+    },
+    {
+      "term": "Calcified",
+      "synonyms": ["Calcium buildup"],
+      "definition": "Deposits of calcium in tissues, often seen in imaging as bright spots."
+    },
+    {
       "term": "Calcification",
       "synonyms": ["Calcium deposit"],
       "definition": "A buildup of calcium in body tissues, seen as bright spots on imaging."
@@ -972,6 +997,346 @@
       "term": "Hydronephrosis",
       "synonyms": ["hydro", "pelvicaliectasis"],
       "definition": "Swelling of a kidney due to a build-up of urine."
+    },
+    {
+      "term": "Liver",
+      "synonyms": [],
+      "definition": "A large organ in the body that processes nutrients and detoxifies harmful substances."
+    }, 
+    {"term": "Spleen",
+      "synonyms": [],
+      "definition": "An organ that filters blood and helps fight infections."
+    },
+    {
+      "term": "Pancreas",
+      "synonyms": [],
+      "definition": "An organ that produces digestive enzymes and hormones like insulin."
+    },
+    {
+      "term": "Gallbladder",
+      "synonyms": [],
+      "definition": "A small organ that stores bile produced by the liver to help digest fats."
+    },
+    {
+      "term": "Biliary", 
+      "synonyms": [],
+      "definition": "Relating to the bile ducts, which carry bile from the liver to the gallbladder and small intestine."
+    },
+    {
+      "term": "Bile Duct",
+      "synonyms": ["Bile Ducts"],
+      "definition": "A tube that carries bile from the liver and gallbladder to the small intestine."
+    },
+    {
+      "term": "Cystic Duct",
+      "synonyms": [],
+      "definition": "The duct that carries bile to and from the gallbladder."
+    },
+    {
+      "term": "Common Bile Duct",
+      "synonyms": [], 
+      "definition": "The duct that carries bile from the liver and gallbladder to the small intestine. Normal size is 6 mm or less in diameter."
+    },
+    {
+      "term": "Celiac Artery",
+      "synonyms": [],
+      "definition": "An artery that supplies blood to the liver, stomach, and spleen."
+    }, 
+    {
+      "term": "Superior Mesenteric Artery",
+      "synonyms": [],
+      "definition": "An artery that supplies blood to the small intestine and part of the large intestine."
+    },
+    {
+      "term": "Inferior Mesenteric Artery",
+      "synonyms": [],
+      "definition": "An artery that supplies blood to the lower part of the large intestine."
+    },
+    {
+      "term": "Cerebellum",
+      "synonyms": [],
+      "definition": "A part of the brain that controls balance and coordination."
+    },
+    {
+      "term": "Frontal cortex",
+      "synonyms": [],
+      "definition": "The front part of the brain that controls reasoning, planning, and problem-solving."
+    },
+    {
+      "term": "Temporal lobe",
+      "synonyms": [],
+      "definition": "A part of the brain that processes auditory information and is involved in memory."
+    },
+    {
+      "term": "Parietal lobe",
+      "synonyms": [],
+      "definition": "A part of the brain that processes sensory information like touch and pain."
+    },
+    {
+      "term": "Occipital lobe",
+      "synonyms": [],
+      "definition": "The back part of the brain that processes visual information."
+    },
+    {
+      "term": "Brainstem",
+      "synonyms": [],
+      "definition": "The part of the brain that controls basic life functions like breathing and heart rate."
+    },
+    {
+      "term": "Thalamus",
+      "synonyms": [],
+      "definition": "A part of the brain that relays sensory information and regulates consciousness."
+    },
+    {
+      "term": "Hypothalamus",
+      "synonyms": [],
+      "definition": "A part of the brain that controls body temperature, hunger, and thirst."
+    },
+    {
+      "term": "Pituitary gland",
+      "synonyms": [],
+      "definition": "A small gland at the base of the brain that produces hormones regulating various bodily functions."
+    },
+    {
+      "term": "Adrenal glands",
+      "synonyms": [],
+      "definition": "Glands located on top of each kidney that produce hormones like adrenaline and cortisol."
+    },
+    {
+      "term": "Thyroid gland",
+      "synonyms": [],
+      "definition": "A gland in the neck that produces hormones regulating metabolism."
+    },
+    {
+      "term": "Parathyroid glands",
+      "synonyms": [],
+      "definition": "Glands located behind the thyroid that regulate calcium levels in the blood."
+    },
+    {
+      "term": "Ovaries",
+      "synonyms": [],
+      "definition": "Small organs in the female pelvis that produce the eggs and hormones like estrogen and progesterone."
+    },
+    {
+      "term": "Testes",
+      "synonyms": [],
+      "definition": "Small organs in males that produce sperm and hormones like testosterone."
+    },
+    {
+      "term": "Uterus",
+      "synonyms": [],
+      "definition": "A reproductive organ that houses and nourishes a developing fetus during pregnancy."
+    },
+    {
+      "term": "Cirrhosis",
+      "synonyms": ["cirrhotic"],
+      "definition": "A late stage of scarring (fibrosis) of the liver caused by many forms of liver diseases and conditions, such as hepatitis and chronic alcoholism."
+    },
+    {
+      "term": "Cirrhotic",
+      "synonyms": [],
+      "definition": "Relating to or affected by cirrhosis, a late stage of scarring of the liver."
+    },
+    {
+      "term": "Fibrosis",
+      "synonyms": [],
+      "definition": "The thickening and scarring of connective tissue, often as a result of injury or inflammation."
+    },
+    {
+      "term": "Regenerative Nodule",
+      "synonyms": [],
+      "definition": "A small, round mass of tissue that forms in the liver as a response to injury or inflammation."
+    },
+    {
+      "term": "Hepatocellular Carcinoma",
+      "synonyms": ["Liver cancer"],
+      "definition": "A type of liver cancer that originates in the liver cells (hepatocytes)."
+    },
+    {
+      "term": "Cholangiocarcinoma",
+      "synonyms": ["Bile duct cancer"],
+      "definition": "A type of cancer that forms in the bile ducts, which carry bile from the liver to the small intestine."
+    },
+    {
+      "term": "LIRADS",
+      "synonyms": ["Liver Imaging Reporting and Data System", "LI RADS", "LI-RADS"],
+      "definition": "A system for standardizing the reporting of liver imaging findings, particularly in patients with cirrhosis or at risk for hepatocellular carcinoma."
+    },
+    {
+      "term": "Steatosis",
+      "synonyms": ["Fatty liver"],
+      "definition": "The accumulation of excess fat, usually in the liver, which can lead to inflammation and scarring."
+    },
+    {
+      "term": "Steatohepatitis",
+      "synonyms": ["Fatty liver disease"],
+      "definition": "Inflammation of the liver caused by the accumulation of excess fat, which can lead to cirrhosis and liver cancer."
+    },
+    {
+      "term": "Hepatitis",
+      "synonyms": [],
+      "definition": "Inflammation of the liver, often caused by viral infections, alcohol use, or autoimmune diseases."
+    },
+    {
+      "term": "Bowel",
+      "synonyms": [],
+      "definition": "The part of the digestive system that includes the small intestine and large intestine."
+    },
+    {
+      "term": "Large Bowel",
+      "synonyms": ["Colon"],
+      "definition": "The part of the digestive system that includes the colon and rectum."
+    },
+    {
+      "term": "Small Bowel",
+      "synonyms": ["Small intestine"],
+      "definition": "The part of the digestive system that includes the duodenum, jejunum, and ileum."
+    },
+    {
+      "term": "Duodenum",
+      "synonyms": [],
+      "definition": "The first part of the small intestine, where most chemical digestion occurs."
+    },
+    {
+      "term": "Jejunum",
+      "synonyms": [],
+      "definition": "The second part of the small intestine, where most nutrient absorption occurs."
+    },
+    {
+      "term": "Ileum",
+      "synonyms": [],
+      "definition": "The last part of the small intestine, where most nutrient absorption occurs."
+    },
+    {
+      "term": "Sigmoid colon",
+      "synonyms": [],
+      "definition": "The part of the large intestine just before the rectum, where waste is stored before being eliminated."
+    },
+    {
+      "term": "Rectum",
+      "synonyms": [],
+      "definition": "The final part of the large intestine, where waste is stored before being eliminated."
+    }, 
+    {
+      "term": "Aorta",
+      "synonyms": [],
+      "definition": "The largest artery in the body, which carries blood from the heart to the rest of the body."
+    },
+    {
+      "term": "Inferior Vena Cava",
+      "synonyms": ["IVC"],
+      "definition": "The large vein that carries blood from the lower body to the heart."
+    },
+    {
+      "term": "Superior Vena Cava",
+      "synonyms": ["SVC"],
+      "definition": "The large vein that carries blood from the upper body to the heart."
+    },
+    {
+      "term": "Pulmonary Arteries",
+      "synonyms": [],
+      "definition": "The arteries that carry blood from the heart to the lungs."
+    },
+    {
+      "term": "Pulmonary Veins",
+      "synonyms": [],
+      "definition": "The veins that carry oxygenated blood from the lungs to the heart."
+    },
+    {
+      "term": "Coronary Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the heart muscle."
+    },
+    {
+      "term": "Carotid Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the head and neck."
+    },
+    {
+      "term": "Subclavian Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the arms and upper body."
+    },
+    {
+      "term": "Brachial Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the arms."
+    },
+    {
+      "term": "Femoral Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the legs."
+    },
+    {
+      "term": "Popliteal Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the lower legs."
+    },
+    {
+      "term": "Renal Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the kidneys."
+    },
+    {
+      "term": "Mesenteric Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the intestines."
+    },
+    {
+      "term": "Splenic Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the spleen."
+    },
+    {
+      "term": "Hepatic Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the liver."
+    },
+    {
+      "term": "Celiac Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the stomach, liver, and spleen."
+    },
+    {
+      "term": "Iliac Arteries",
+      "synonyms": [],
+      "definition": "The arteries that supply blood to the pelvis and lower limbs."
+    },
+    {
+      "term": "Hyperenhancing",
+      "synonyms": [],
+      "definition": "A term used in imaging to describe an area that appears brighter than surrounding tissues, indicating increased blood flow or activity."
+    },
+    {
+      "term": "Hyperenhances",
+      "synonyms": [],
+      "definition": "To appear brighter than surrounding tissues in imaging, indicating increased blood flow or activity."
+    },
+    {
+      "term": "Hypoenhancing",
+      "synonyms": [],
+      "definition": "A term used in imaging to describe an area that appears darker than surrounding tissues, indicating decreased blood flow or activity."
+    },
+    {
+      "term": "Hypoenhances",
+      "synonyms": [],
+      "definition": "To appear darker than surrounding tissues in imaging, indicating decreased blood flow or activity."
+    },
+    {
+      "term": "Enhancing",
+      "synonyms": [],
+      "definition": "A term used in imaging to describe an area that appears brighter than surrounding tissues after contrast use, indicating increased blood flow or activity."
+    },
+    {
+      "term": "Enhances",
+      "synonyms": [],
+      "definition": "To appear brighter than surrounding tissues in imaging after contrast use, indicating increased blood flow or activity."
+    },
+    {
+      "term": "Non-enhancing",
+      "synonyms": [],
+      "definition": "A term used in imaging to describe an area that does not appear brighter than surrounding tissues after contrast use, indicating no significant blood flow or activity."
     }
 ]
+  
   

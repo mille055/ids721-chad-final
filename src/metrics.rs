@@ -1,5 +1,5 @@
-use actix_web::{get, web, HttpResponse, Responder};
 use actix_web::http::header::ContentType;
+use actix_web::{get, web, HttpResponse, Responder};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
 
