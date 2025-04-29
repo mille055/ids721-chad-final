@@ -1,15 +1,46 @@
 # Patient-Friendly Radiology Report Converter
+# IDS 721 Spring 2025
 
-This project provides a simple web application that rewrites radiology report findings into patient-friendly language using a local LLM model server.
+This project provides a simple web application that rewrites radiology report findings into patient-friendly language using a locally hosted large language model (LLM). It also highlights common medical terms in the original text and displays their definitions as hover-over tooltips. The definitions are drawn from a custom-built dictionary tailored for this project, offering quick and accessible explanations for patients. 
 
 Built with:
-- Rust (Actix-Web framework) for the backend and minimal frontend
-- Mozilla's [llamafile](https://github.com/Mozilla-Ocho/llamafile) to serve a quantized DeepSeek 8B model
-- Docker and Docker Compose to orchestrate the containers
+- **Rust** using the Actix-Web framework (backend + minimal frontend)
+- **Mozilla's [llamafile]** (https://github.com/Mozilla-Ocho/llamafile) to serve a quantized model (e.g. DeepSeek 8B or Phi-2)
+- **Docker & Docker Compose** for local orchestration
+- **HTML & JS** frontend with inline display and term highlighting
+
+---
+
+## 🧬 LLM Architecture and EC2 Tradeoffs
+
+### Model Selection
+- **DeepSeek 8B** (quantized): Good performance and coherence; requires a larger instance (`g4dn.xlarge` or better).
+- **Phi-2** (smaller, more efficient): Works on smaller machines but has lower-quality output in clinical contexts.
+- **TinyLLaMA / Other LLMs**: Fast but overly generic summaries. Often too vague for diagnostic nuance.
+
+### EC2 Considerations
+| Model        | EC2 Type       | Pros                          | Cons                              |
+|--------------|----------------|-------------------------------|-----------------------------------|
+| DeepSeek 8B  | g4dn.xlarge+   | Quality summaries, good scale | Cost, startup time, GPU needed    |
+| Phi-2        | t2.large+      | Fast setup, cheaper           | Generic output, less informative  |
+
+**Takeaway:** Tradeoff between speed/cost and summary quality. A larger instance may be necessary for reliable clinical-grade rewriting.
 
 ---
 
 ## ✨ Project Structure
+The tree structure is shown [here](tree.txt)
+
+---
+## 🌐 App Preview
+
+### 📷 Screenshots
+- ![Homepage Highlight Terms](static/images/projectf_app1.png)
+- ![LLM Summary Waiting](static/images/projectf_app_summarywaiting.png)
+- ![LLM Summary](static/images/highlighted.png)
+
+### 🎬 Demo Video
+- [Demo video link placeholder](https://your.video.url/here)
 
 ---
 
@@ -47,33 +78,37 @@ Llamafile model server will run internally on port 8080 (not directly exposed)
 Frontend: Very simple HTML form served by Actix.
 Backend: POSTs findings to the /explain endpoint.
 Rust App: Formats a prompt, calls the Llamafile model via HTTP (http://llama:8080/completion).
-Llamafile Server: Uses a quantized DeepSeek 8B model to generate patient-friendly text.
-Docker Compose ensures both services talk to each other correctly by internal networking (llama hostname).
+Llamafile Server: Uses a open-source HuggingFace llamafile model (such as quantized DeepSeek 8B model) to generate patient-friendly text.
 
 🛠 Updating the Model or App
 
-
-Task	Action
-Update the Actix app (code change)	Rebuild only the app container
-Update the model (new .llamafile)	Rebuild only the llamafile container
-They are cleanly separated for fast updates!
+🧪 Example Flow:
+- User pastes report
+- Highlighting runs immediately (local dictionary)
+- POST to /explain sends formatted prompt to llamafile server
+- LLM returns rewritten output
+- Displayed in browser
 
 ⚡ Useful Commands
 
-Build everything:
-docker-compose build
-Run services:
-docker-compose up
-Run services in background (detached):
-docker-compose up -d
-Stop and remove containers:
-docker-compose down
-📦 Deployment (Coming Soon)
 
-This setup is ready to be deployed on:
+## 📦 Deployment Notes
 
+This app has been deployed to:
 
+AWS EC2 (with persistent EBS volumes)
 
-✍️ Author
+On the EC2 instance, I have installed a .sh file (restart_all.sh), which stops other llamafile model and running docker containers with the app, and restarts the model and the app's docker container with the appropriate settings for the app to be able to access the model. An example is shown in the repository under restart_all.sh. 
+
+## 📃 LLM Use Disclosure
+
+Parts of this code and documentation were developed using GitHub Copilot and ChatGPT to assist with:
+
+API design and error handling
+Prompt engineering for clinical NLP
+Documentation scaffolding
+All clinical outputs should be reviewed by licensed professionals. This tool is intended for research and educational purposes only.
+
+## Author
 
 Built by [Chad Miller] - 2025

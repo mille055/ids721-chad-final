@@ -220,6 +220,21 @@
       "definition": "An abnormal growth of tissue that may be benign or malignant."
     },
     {
+      "term": "Masses",
+      "synonyms": ["Tumors", "Lumps"],
+      "definition": "Multiple abnormal growths of tissue that may be benign or malignant."
+    },
+    {
+      "term": "Neoplasm",
+      "synonyms": ["Tumor"],
+      "definition": "An abnormal growth of tissue, which can be benign or malignant."
+    },
+    {
+      "term": "Neoplasms",
+      "synonyms": ["Tumors"],
+      "definition": "Multiple abnormal growths of tissue, which can be benign or malignant."
+    },
+    {
       "term": "Thrombosis",
       "synonyms": ["Blood clot"],
       "definition": "Formation of a blood clot inside a blood vessel."
@@ -1023,9 +1038,24 @@
       "definition": "Relating to the bile ducts, which carry bile from the liver to the gallbladder and small intestine."
     },
     {
+      "term": "Biliary Ductal",
+      "synonyms": [],
+      "definition": "Relating to the ducts that carry bile from the liver and gallbladder to the small intestine."
+    },
+    {
+      "term": "Biliary Tree",
+      "synonyms": [],
+      "definition": "The network of bile ducts that carry bile from the liver to the gallbladder and small intestine."
+    },
+    {
       "term": "Bile Duct",
       "synonyms": ["Bile Ducts"],
       "definition": "A tube that carries bile from the liver and gallbladder to the small intestine."
+    },
+    {
+      "term": "Dilatation",
+      "synonyms": [],
+      "definition": "The process of widening or enlarging a structure, such as a blood vessel or duct."
     },
     {
       "term": "Cystic Duct",
@@ -1336,6 +1366,26 @@
       "term": "Non-enhancing",
       "synonyms": [],
       "definition": "A term used in imaging to describe an area that does not appear brighter than surrounding tissues after contrast use, indicating no significant blood flow or activity."
+    },
+    {
+      "term": "Peritoneum",
+      "synonyms": [],
+      "definition": "The membrane lining the abdominal cavity and covering the abdominal organs."
+    },
+    {
+      "term": "Peritoneal Cavity",
+      "synonyms": [],
+      "definition": "The space within the abdomen that contains the abdominal organs and is lined by the peritoneum."
+    },
+    {
+      "term": "Retroperitoneum",
+      "synonyms": [],
+      "definition": "The space behind the peritoneum that contains the kidneys, adrenal glands, aorta, inferior vena cava, and other structures."
+    },
+    {
+      "term": "Mesentery",
+      "synonyms": [],
+      "definition": "The region of the body containing the intestines and blood vessels, nerves, and lymphatics."
     }
 ]
   

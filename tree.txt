@@ -1,0 +1,31 @@
+.
+├── Cargo.lock
+├── Cargo.toml
+├── Dockerfile
+├── data
+│   └── medical_terms.json
+├── docker-compose.prod.yml
+├── docker-compose.yml
+├── dockerignore
+├── llama.log
+├── llamafile
+│   ├── Dockerfile.llamafile
+│   ├── deepseek-8b.llamafile
+│   ├── llama.log
+│   └── llamafile_binary
+├── projectf.tar
+├── readme.md
+├── restart.sh
+├── src
+│   ├── dictionary.rs
+│   ├── lib.rs
+│   ├── main.rs
+│   └── metrics.rs
+├── static
+│   └── home.html
+├── tests
+│   ├── dictionary_tests.rs
+│   └── main_tests.rs
+└── tree.txt
+
+6 directories, 23 files
