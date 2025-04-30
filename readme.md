@@ -11,27 +11,6 @@ Built with:
 
 ---
 
-## 🧬 LLM Architecture and EC2 Tradeoffs
-
-### Model Selection
-- **DeepSeek 8B** (quantized): Good performance and coherence; requires a larger instance (`g4dn.xlarge` or better).
-- **Phi-2** (smaller, more efficient): Works on smaller machines but has lower-quality output in clinical contexts.
-- **TinyLLaMA / Other LLMs**: Fast but overly generic summaries. Often too vague for diagnostic nuance.
-
-### EC2 Considerations
-| Model        | EC2 Type       | Pros                          | Cons                              |
-|--------------|----------------|-------------------------------|-----------------------------------|
-| DeepSeek 8B  | g4dn.xlarge+   | Quality summaries, good scale | Cost, startup time, GPU needed    |
-| Phi-2        | t2.large+      | Fast setup, cheaper           | Generic output, less informative  |
-
-**Takeaway:** Tradeoff between speed/cost and summary quality. A larger instance may be necessary for reliable clinical-grade rewriting.
-
----
-
-## ✨ Project Structure
-The tree structure is shown [here](tree.txt)
-
----
 ## 🌐 App Preview
 
 ### 📷 Screenshots
@@ -67,12 +46,22 @@ Make sure you have:
 git clone https://gitlab.com/dukeaiml/ids721-spring2025/cm-final1.git
 ```
 
-Download and place the following into the `llamafile/` directory:
-- The **deepseek-8b.llamafile** model (download from Hugging Face)
+### 2. Download and Prepare Llamafile (Phi-2)
 
+Download and place the following into the `llamafile/` directory:
+- A llamafile model, such as **deepseek-8b.llamafile** or **phi-2**
+- For example, go to https://huggingface.co/jartine/phi-2-llamafile
+- Click the Download button next to phi-2.llamafile (you must be signed into Hugging Face).
+- Place the downloaded file into your EC2 or project directory.
+- Rename the binary or update the LLAMAFILE_BINARY path in restart_all.sh accordingly.
+- Make it executable:
+
+```bash
+chmod +x phi-2.llamafile
+```
 ---
 
-### 2. Build and Start with Docker Compose
+### 3. Build and Start app with Docker Compose
 
 From the project root:
 
@@ -81,7 +70,7 @@ docker build --platform linux/amd64 -t mille055/projectf:latest .
 docker run --platform linux/amd64 -p 8000:8000 mille055/projectf:latest
 ```
 
-### 3. Access and use the app
+### 4. Access and use the app
 
 Rust Actix app will be available at: http://localhost:8000
 
@@ -93,26 +82,16 @@ Llamafile model server will run internally on port 8080 (not directly exposed)
 
 ✅ Wait for the model to deliver a summary in patient-friendly terms.
 
-
-🧠 How It Works
-
-Frontend: Very simple HTML form served by Actix.
-Backend: POSTs findings to the /explain endpoint.
-Rust App: Formats a prompt, calls the Llamafile model via HTTP (http://llama:8080/completion).
-Llamafile Server: Uses a open-source HuggingFace llamafile model (such as quantized DeepSeek 8B model) to generate patient-friendly text.
-
 ## 🛠 EC2 Deployment
 
-To deploy:
+For deployment:
 
-Provision an EC2 instance (e.g., g4dn.xlarge for DeepSeek, or t2.large for Phi-2).
-Download a .llamafile model and set executable permissions:
+- Provision an EC2 instance (e.g., g4dn.xlarge for DeepSeek, or t2.large for Phi-2).
+- Download a .llamafile model and set executable permissions as described above:
+- Copy the the provided script restart_all.st to the EC2 instance. 
+- Then, run it:
 ```bash
-wget https://huggingface.co/.../phi-2.llamafile -O phi-2.llamafile
-chmod +x phi-2.llamafile
-```
-Copy the the provided script restart_all.st to the EC2 instance. Then, run it:
-```bash
+chmod +x restart_all.sh
 ./restart_all.sh
 ```
 
@@ -131,6 +110,37 @@ This app has been deployed to:
 AWS EC2 (with persistent EBS volumes)
 
 On the EC2 instance, I have installed a .sh file (restart_all.sh), which stops other llamafile model and running docker containers with the app, and restarts the model and the app's docker container with the appropriate settings for the app to be able to access the model. An example is shown in the repository under restart_all.sh. 
+
+---
+
+## 🧬 LLM Architecture and EC2 Tradeoffs
+
+### Model Selection
+- **DeepSeek 8B** (quantized): Good performance and coherence; requires a larger instance (`g4dn.xlarge` or better).
+- **Phi-2** (smaller, more efficient): Works on smaller machines but has lower-quality output in clinical contexts.
+- **TinyLLaMA / Other LLMs**: Fast but overly generic summaries. Often too vague for diagnostic nuance.
+
+### EC2 Considerations
+| Model        | EC2 Type       | Pros                          | Cons                              |
+|--------------|----------------|-------------------------------|-----------------------------------|
+| DeepSeek 8B  | g4dn.xlarge+   | Quality summaries, good scale | Cost, startup time, GPU needed    |
+| Phi-2        | t2.large+      | Fast setup, cheaper           | Generic output, less informative  |
+
+**Takeaway:** Tradeoff between speed/cost and summary quality. A larger instance may be necessary for reliable clinical-grade rewriting.
+
+---
+
+## ✨ Project Structure
+The tree structure is shown [here](tree.txt)
+
+---
+
+## 🧠 How It Works
+
+Frontend: Very simple HTML form served by Actix.
+Backend: POSTs findings to the /explain endpoint.
+Rust App: Formats a prompt, calls the Llamafile model via HTTP (http://llama:8080/completion).
+Llamafile Server: Uses a open-source HuggingFace llamafile model (such as quantized DeepSeek 8B model) to generate patient-friendly text.
 
 ## 📃 LLM Use Disclosure
 
