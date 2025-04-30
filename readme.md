@@ -36,6 +36,9 @@ The tree structure is shown [here](tree.txt)
 
 ### 📷 Screenshots
 - ![img](static/images/projectf_app1.png)
+and when you hover over the words, you get a small box with the
+definition, such as this one for ascites (cursor not shown):
+- ![img](static/images/projectf_app_hover.png)
 - ![img](static/images/projectf_app_summarywaiting.png)
 - ![img](static/images/projectf_app_summary_old.png)
 

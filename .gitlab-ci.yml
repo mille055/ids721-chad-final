@@ -37,7 +37,7 @@ build:
   before_script:
     - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
   script:
-    - docker build -t mille055/projectf:latest .
+    - docker build --platform linux/amd64 -t mille055/projectf:latest .
     - docker push mille055/projectf:latest
   only:
     - main
