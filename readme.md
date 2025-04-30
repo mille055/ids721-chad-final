@@ -31,7 +31,7 @@ And eventually the model will populate the patient-friendly summary text:
 - ![img](static/images/projectf_app_summary_old.png)
 
 ### 🎬 Demo Video
-- [Demo video link placeholder](https://your.video.url/here)
+- [Demo video link placeholder](https://youtu.be/7D-Dc0Q3Ins)
 
 ---
 
