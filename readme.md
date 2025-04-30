@@ -35,9 +35,9 @@ The tree structure is shown [here](tree.txt)
 ## 🌐 App Preview
 
 ### 📷 Screenshots
-- ![Homepage Highlight Terms](static/images/projectf_app1.png)
-- ![LLM Summary Waiting](static/images/projectf_app_summarywaiting.png)
-- ![LLM Summary](static/images/highlighted.png)
+- ![img](static/images/projectf_app1.png)
+- ![img](static/images/projectf_app_summarywaiting.png)
+- ![img](static/images/projectf_app_summary_old.png)
 
 ### 🎬 Demo Video
 - [Demo video link placeholder](https://your.video.url/here)
