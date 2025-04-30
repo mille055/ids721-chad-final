@@ -14,8 +14,8 @@ use projectf::{ExplainRequest, ExplainResponse};
 
 #[get("/")]
 async fn home() -> impl Responder {
-    let html = std::fs::read_to_string("static/home.html")
-        .expect("Failed to read static/home.html");
+    let html =
+        std::fs::read_to_string("static/home.html").expect("Failed to read static/home.html");
 
     HttpResponse::Ok()
         .content_type(ContentType::html())
@@ -26,7 +26,7 @@ async fn home() -> impl Responder {
 async fn highlight(
     req: web::Json<ExplainRequest>,
     dictionary: web::Data<SimpleDictionary>,
-    ) -> impl Responder {
+) -> impl Responder {
     let highlighted_input = dictionary.highlight_medical_terms(&req.findings);
     HttpResponse::Ok()
         .content_type(ContentType::html())
@@ -38,7 +38,7 @@ async fn explain(
     req: web::Json<ExplainRequest>,
     app_state: web::Data<AppState>,
     dictionary: web::Data<SimpleDictionary>,
-    ) -> impl Responder {
+) -> impl Responder {
     let start_time = Instant::now();
     let client = Client::new();
     let prompt = format!(
