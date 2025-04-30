@@ -10,9 +10,15 @@ LOG_FILE="llama.log"
 
 echo ">>> Checking for required tools..."
 
-# Check Docker
+# ========== CHECK & INSTALL DOCKER IF NEEDED ==========
 if ! command -v docker &> /dev/null; then
-  echo "ERROR: Docker is not installed. Please install Docker first."
+  echo ">>> Docker not found. Installing Docker..."
+  sudo apt update
+  sudo apt install -y docker.io
+  sudo systemctl start docker
+  sudo usermod -aG docker $USER
+  echo ">>> Docker installed. You may need to log out and log back in for group permissions to take effect."
+  echo ">>> Exiting for now. Please re-run this script after re-logging into the instance."
   exit 1
 fi
 
@@ -23,8 +29,15 @@ if [ ! -f "$LLAMAFILE_BINARY" ]; then
   exit 1
 fi
 
-echo ">>> Pulling latest Docker image: $DOCKER_IMAGE..."
-docker pull "$DOCKER_IMAGE"
+echo ">>> [1] Checking for any process using port $APP_PORT..."
+PID_IN_USE=$(lsof -ti tcp:$APP_PORT)
+if [ ! -z "$PID_IN_USE" ]; then
+  echo ">>> Port $APP_PORT is in use by PID $PID_IN_USE. Stopping..."
+  kill -9 $PID_IN_USE
+  sleep 1
+else
+  echo ">>> Port $APP_PORT is free."
+fi
 
 echo ">>> Stopping old Docker containers using image: $DOCKER_IMAGE..."
 OLD_CONTAINER_ID=$(docker ps --filter "ancestor=$DOCKER_IMAGE" --format "{{.ID}}")
@@ -43,6 +56,9 @@ if [ -n "$OLD_LLAMAFILE_PID" ]; then
 else
   echo ">>> No llamafile process found."
 fi
+
+echo ">>> Pulling latest Docker image: $DOCKER_IMAGE..."
+docker pull "$DOCKER_IMAGE" 
 
 sleep 2
 

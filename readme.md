@@ -4,14 +4,16 @@
 Radiology reports can be filled with complex medical terms that are difficult for the average patient to understand. This project provides a simple web application that summarizes radiology report findings into patient-friendly language using a locally hosted large language model (LLM). It also highlights common medical terms in the original text and displays their definitions as hover-over tooltips. The definitions are drawn from a custom-built dictionary tailored for this project (small now, but could grow), offering quick and accessible explanations for patients. 
 
 Built with:
-- **Rust** using the Actix-Web framework (backend + minimal frontend)
-- **Mozilla's [llamafile]** (https://github.com/Mozilla-Ocho/llamafile) to serve a quantized model (e.g. DeepSeek 8B or Phi-2)
-- **Docker & Docker Compose** for local orchestration
-- **HTML & JS** frontend with inline display and term highlighting
+- **Rust** using the **Actix-Web** framework — powers both the backend and minimal frontend.
+- **Mozilla's llamafile** (https://github.com/Mozilla-Ocho/llamafile) to serve a quantized model (e.g. DeepSeek 8B or Phi-2)
+- **Docker** used to containerize and deploy the Rust application.
+- **AWS EC2**, used to host both the application and model in a secure, scalable environment.
 
 ---
 
 ## 🌐 App Preview
+
+### The application is deployed on AWS EC2 and can be found at : [http://54.159.67.65:8000](http://54.159.67.65:8000)
 
 ### 📷 Screenshots
 - ![img](static/images/projectf_app1.png)
@@ -66,6 +68,8 @@ chmod +x phi-2.llamafile
 From the project root:
 
 ```bash
+cargo build --release
+
 docker build --platform linux/amd64 -t mille055/projectf:latest .
 docker run --platform linux/amd64 -p 8000:8000 mille055/projectf:latest
 ```
