@@ -5,15 +5,11 @@ WORKDIR /app
 
 # Cache dependencies first
 COPY Cargo.toml Cargo.lock ./
-
-# Copy real source code
 COPY src ./src
 COPY data ./data
+COPY static ./static
 
-# Fetch dependencies
 RUN cargo fetch
-
-# Build for release
 RUN cargo build --release
 
 # 2nd stage: Tiny runtime container
@@ -26,6 +22,8 @@ WORKDIR /app
 # Copy the compiled binary
 COPY --from=builder /app/target/release/projectf .
 COPY data ./data
+COPY Cargo.toml Cargo.lock ./
+COPY static ./static
 
 EXPOSE 8000
 

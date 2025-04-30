@@ -1,30 +1,43 @@
 stages:
+  - lint
+  - test
   - build
   - deploy
 
-variables:
-  DOCKER_DRIVER: overlay2
+lint:
+  stage: lint
+  image: rust:latest
+  script:
+    - cargo fmt --all -- --check
 
-build_app:
+test:
+  stage: test
+  image: rust:latest
+  script:
+    - cargo test
+
+build:
   stage: build
   image: docker:latest
   services:
     - docker:dind
   before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
   script:
-    - docker build -t patient-converter .
+    - docker build -t mille055/projectf:latest .
+    - docker push mille055/projectf:latest
   only:
     - main
 
-deploy_app:
+deploy:
   stage: deploy
   image: docker:latest
   services:
     - docker:dind
   before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
   script:
-    - docker run -d -p 8000:8000 patient-converter
+    - docker pull mille055/projectf:latest
+    - docker run -d -p 8000:8000 mille055/projectf:latest
   only:
     - main
