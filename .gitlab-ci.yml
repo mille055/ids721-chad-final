@@ -2,20 +2,33 @@ stages:
   - lint
   - test
   - build
-  - deploy
 
+variables:
+  DOCKER_DRIVER: overlay2
+
+# --------------------
+# Lint Stage
+# --------------------
 lint:
   stage: lint
   image: rust:latest
+  before_script:
+    - rustup component add rustfmt
   script:
     - cargo fmt --all -- --check
 
+# --------------------
+# Test Stage
+# --------------------
 test:
   stage: test
   image: rust:latest
   script:
-    - cargo test
+    - cargo test --all
 
+# --------------------
+# Build Stage
+# --------------------
 build:
   stage: build
   image: docker:latest
@@ -26,18 +39,5 @@ build:
   script:
     - docker build -t mille055/projectf:latest .
     - docker push mille055/projectf:latest
-  only:
-    - main
-
-deploy:
-  stage: deploy
-  image: docker:latest
-  services:
-    - docker:dind
-  before_script:
-    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-  script:
-    - docker pull mille055/projectf:latest
-    - docker run -d -p 8000:8000 mille055/projectf:latest
   only:
     - main
