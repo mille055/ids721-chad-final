@@ -146,6 +146,20 @@ Backend: POSTs findings to the /explain endpoint.
 Rust App: Formats a prompt, calls the Llamafile model via HTTP (http://llama:8080/completion).
 Llamafile Server: Uses a open-source HuggingFace llamafile model (such as quantized DeepSeek 8B model) to generate patient-friendly text.
 
+## Monitoring and Metrics
+
+There are separate logs for the llamafile model and for the dockerized app which can be accessed in the ec2 instance, and which are also visible in CloudWatch. 
+
+Llama log in Cloudwatch:
+![img](static/images/llama_log.png)
+
+Log for the Dockerized app:
+![img](static/images/app_log.png)
+
+This provides, among other things, an elapsed time for the request to return from the model after pressing the 'convert' button. 
+
+Additionally, there is a /metrics route in the app, which provides a simple counter for the number of requests processed. 
+
 ## 📃 LLM Use Disclosure
 
 Parts of this code and documentation were developed using GitHub Copilot and ChatGPT to assist with:
