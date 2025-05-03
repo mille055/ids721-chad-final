@@ -20,11 +20,11 @@ Built with:
 
 After the user presses convert, the text appears with defined terms in bold text and blue color; when you hover over the words, you get a small box with the definition, such as this one for ascites (cursor not shown):
 
-- ![img](static/images/new_projectf_app_hover.png)
+- ![img](static/images/new_projectf_app_hover2.png)
 
 The llamafile is used to summarize the original report with patient-friendly text. While the model is thinking, the user sees:
 
-- ![img](static/images/projectf_app_summarywaiting.png)
+- ![img](static/images/new_projectf_app_summary_waiting.png)
 
 And eventually the model will populate the patient-friendly summary text:
 
