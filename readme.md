@@ -24,7 +24,7 @@ After the user presses convert, the text appears with defined terms in bold text
 
 The llamafile is used to summarize the original report with patient-friendly text. While the model is thinking, the user sees:
 
-- ![img](static/images/new_projectf_app_summary_waiting.png)
+- ![img](static/images/new_projectf_app_summarywaiting.png)
 
 And eventually the model will populate the patient-friendly summary text:
 
