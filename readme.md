@@ -16,11 +16,11 @@ Built with:
 ### The application is deployed on AWS EC2 and can be found at : [http://54.159.67.65:8000](http://54.159.67.65:8000)
 
 ### 📷 Screenshots
-- ![img](static/images/projectf_app1.png)
+- ![img](static/images/new_projectf_app1.png)
 
 After the user presses convert, the text appears with defined terms in bold text and blue color; when you hover over the words, you get a small box with the definition, such as this one for ascites (cursor not shown):
 
-- ![img](static/images/projectf_app_hover.png)
+- ![img](static/images/new_projectf_app_hover.png)
 
 The llamafile is used to summarize the original report with patient-friendly text. While the model is thinking, the user sees:
 
@@ -28,7 +28,7 @@ The llamafile is used to summarize the original report with patient-friendly tex
 
 And eventually the model will populate the patient-friendly summary text:
 
-- ![img](static/images/projectf_app_summary_old.png)
+- ![img](static/images/new_projectf_app_summary1.png)
 
 ### 🎬 Demo Video
 - [Demo video link placeholder](https://youtu.be/7D-Dc0Q3Ins)
